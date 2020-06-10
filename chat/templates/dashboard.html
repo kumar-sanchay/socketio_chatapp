@@ -1,0 +1,32 @@
+{% load static %}
+<html>
+	<head>
+		<title>Dashboard</title>
+	</head>
+	<link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<body>
+					<h3>Hello, {{request.user.username }}</h3>
+		<div class="main">
+			<div>
+				<div>
+				</div><br><br>
+				<div>
+                        {% for user in users %}
+                            {% ifnotequal user request.user %}
+                            <div class="contacts">
+						        <p>User: {{ user.username }}</p>
+                                <a href="{% url 'chat:chat_page' user.pk user.username %}"><button>Chat</button></a>
+					        </div>
+                            {% endifnotequal %}
+                        {% endfor %}
+
+				</div>
+			</div>
+
+
+			<div>
+			</div>
+		</div>
+	</body>
+</html>
