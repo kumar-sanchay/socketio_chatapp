@@ -77,6 +77,7 @@ WSGI_APPLICATION = 'chatapp.wsgi.application'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 LOGIN_URL = 'authentication:login'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 DATABASES = {
     'default': {
